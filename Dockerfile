@@ -1,6 +1,6 @@
-FROM frolvlad/alpine-oraclejdk8:slim
-COPY build/libs/example-0.0.1-SNAPSHOT.jar app.jar
+FROM leszko/jenkins-docker-slave
+
+RUN apt-get update
+RUN apt-get install maven
 
 EXPOSE 8080
-
-ENTRYPOINT ["java", "-jar", "app.jar"]
