@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+    jenkins:
+        image: jenkins
+        ports:
+            - 8080:8080
+        volumes:
+            - ./jenkins_home:/var/jenkins_home
+    dockerslave:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: slavedocker
+        privileged: true
+        volumes:
+            - ./dockers:/var/jenkins
+    sshdocker:
+        image: slavedocker
+        privileged: true
