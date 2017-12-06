@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage("Maven install") {
             steps {
-                sh "apt-get update"
-                sh "apt-get install -y maven"
+                sh "sudo apt-get update"
+                sh "sudo apt-get install -y maven"
             }
         }
         stage("Checkout") {
