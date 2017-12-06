@@ -3,12 +3,18 @@ pipeline {
     stages {
         stage("Checkout") {
             steps {
+                sh "apt-get update"
+                sh "apt-get install -y maven"
+            }
+        }
+        stage("Checkout") {
+            steps {
                 git url: "https://github.com/ktomi93/greenhouse.git"
             }
         }
         stage("Packaging") {
             steps {
-                sh "./mvn clean install"
+                sh "mvn clean install"
             }
         }
         stage("Docker build") {
