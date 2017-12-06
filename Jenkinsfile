@@ -13,7 +13,7 @@ pipeline {
         }
         stage("Packaging") {
             steps {
-                sh "mvn clean install"
+                sh "mvn package"
             }
         }
         stage("Docker build") {
